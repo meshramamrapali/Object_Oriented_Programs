@@ -6,6 +6,7 @@ public class Stocks {
     private int noOfShares;
     private double sharePrice;
 
+
     public void setStockName(String stockName) {
         this.stockName = stockName;
     }
@@ -48,7 +49,7 @@ public class Stocks {
     public Stocks() {
     }
 
-    void stockPortfolio() {
+  public  void stockPortfolio() {
 
         System.out.println("Enter no of stocks");
         noOfStocks = scr.nextInt();
@@ -70,5 +71,36 @@ public class Stocks {
         for(Stocks stock : list){
             System.out.println(stock);
         }
+    }
+    private double balance;
+
+    public Account(double initial_balance){
+
+        if (initial_balance > 0.0)
+            balance = initial_balance;
+    }
+
+    public void credit(double amount)
+    {
+        balance = balance + amount;
+    }
+    // debit the account
+
+    public void debit(double debit_account){
+        if (debit_account > balance){
+            debit_account = 0.0;
+            System.out.println("Debit amount exceeded account balance.");
+        }
+        balance = balance - debit_account;
+    }
+    public double getBalance() //return the account balance
+    {
+        return balance;
+    }
+
+    public static void main(String args[]) {
+        Account account1 = new Account(50.00); // create Account object
+        Account account2 = new Account(-7.53); // create Account object
+
     }
 }
